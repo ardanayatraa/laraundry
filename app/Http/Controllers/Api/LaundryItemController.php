@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\LaundryItem;
 
-class OrderItemController extends Controller
+class LaundryItemController extends Controller
 {
     public function index()
     {
-        $orderItems = OrderItem::with('order')->get();
+        $orderItems = LaundryItem::with('order')->get();
 
         return response()->json([
             'status' => 'success',
@@ -28,7 +29,7 @@ class OrderItemController extends Controller
             'item_price' => 'required|numeric',
         ]);
 
-        $orderItem = OrderItem::create($validated);
+        $orderItem = LaundryItem::create($validated);
 
         return response()->json([
             'status' => 'success',
@@ -39,7 +40,7 @@ class OrderItemController extends Controller
 
     public function show($id)
     {
-        $orderItem = OrderItem::with('order')->findOrFail($id);
+        $orderItem = LaundryItem::with('order')->findOrFail($id);
 
         return response()->json([
             'status' => 'success',
@@ -50,7 +51,7 @@ class OrderItemController extends Controller
 
     public function update(Request $request, $id)
     {
-        $orderItem = OrderItem::findOrFail($id);
+        $orderItem = LaundryItem::findOrFail($id);
 
         $validated = $request->validate([
             'order_id' => 'sometimes|required|exists:orders,id',
@@ -70,7 +71,7 @@ class OrderItemController extends Controller
 
     public function destroy($id)
     {
-        $orderItem = OrderItem::findOrFail($id);
+        $orderItem = LaundryItem::findOrFail($id);
         $orderItem->delete();
 
         return response()->json([
