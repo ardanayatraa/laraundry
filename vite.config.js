@@ -11,4 +11,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        outDir: 'public/build', // Ensure your output directory is correct
+        emptyOutDir: true,      // Clear out the build directory on each build
+    },
 });
