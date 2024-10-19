@@ -45,7 +45,7 @@ Route::prefix('laundry-owners')->middleware('auth:sanctum')->group(function () {
 });
 
 // Order Routes
-Route::prefix('orders')->middleware('auth:sanctum')->group(function () {
+Route::prefix('orders')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('api.orders.index');
     Route::post('/', [OrderController::class, 'store'])->name('api.orders.store');
     Route::get('/{id}', [OrderController::class, 'show'])->name('api.orders.show');

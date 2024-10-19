@@ -12,7 +12,8 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'public/build', // Ensure your output directory is correct
-        emptyOutDir: true,      // Clear out the build directory on each build
+        manifest: true,  // Ensure manifest is generated
+        outDir: 'public/build', // Adjust to your output directory
+        emptyOutDir: true,
     },
 });
