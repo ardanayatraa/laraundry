@@ -12,7 +12,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        manifest: true,  // Ensure manifest is generated
+
         outDir: 'public/build', // Adjust to your output directory
         emptyOutDir: true,
     },
